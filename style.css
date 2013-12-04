@@ -455,37 +455,38 @@ body {
 #banner {
   position: fixed;
   width: 100%;
-  height: 45%;
-  /*background: url("photo.jpg") no-repeat center;
-  background-size: 50%;*/
-  background: transparent;
+  height: 35%;
+  background: url("photo.jpg") no-repeat center;
+  background-size: 64% 100%;
   display: flexbox;
   opacity: 0.7;
    -webkit-transition: all 1s;
-   -webkit-animation-name: weird;
-   -webkit-animation-duration: 1s;
-   -webkit-animation-iteration-count: 1;
-   overflow: hidden;
-
+   
+  box-shadow: 0px -2px 2px rgba(34,34,34,0.6);
 }
 
 #banner img {
+  position: absolute;
   height: 100%;
   width: 72%;
-  -webkit-transform: rotate(1.8deg);
-  left: 10%;
-  margin-left: 14%;
-  border-width:5px; 
-  border-top-style:groove;
+  /*-webkit-transform: rotate(1.8deg);*/
+  left: 14%;
+  box-shadow: 0px -2px -10px -10px rgba(34,34,34,0.6);
+  z-index: 1;
+
 }
-main {
+
+#awesome {
   width: 100%;
   height: 800px;
   /*background: url("grey1.jpg") no-repeat fixed center;
   background-size: cover;
-*/
+
   background: #232323;
-  z-index: 3;
+  */
+  background: transparent;
+  z-index: 1;
+  -webkit-transition: all 10s;
 }
 svg {
     background: transparent;
@@ -518,19 +519,24 @@ svg path {
   top: 52%;
   height: 40%;
   left: 1%;
-  width: 26%;
+  width: 15%;
   background: grey;
+  -webkit-transition: all 4s;
+  -webkit-filter: blur(5px);
 }
 
-#right {
+#right, #line {
   position: fixed;
   background: grey;
-  top: 68%;
-  height: 7%;
-  width: 3%;
-  left: 75%;
+  top: 52%;
+  height: 40%;
+  width: 1px;
+  left: 80%;
 }
 
+#line {
+  left: 17%;
+}
 #sound {
   position: fixed;
   top: 52%;
@@ -555,8 +561,20 @@ body {
 }
 
 
+#blur {
+  z-index: 10;
+  position: fixed;
+  height: 35%;
+  width: 64%;
+  /*-webkit-transform: rotate(1.8deg);*/
+  left: 14%;
+  background: transparent;
+  opacity: 0.5;
+  -webkit-transition: all 3s;
 
+}
 
+*/
 
 
 

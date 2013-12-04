@@ -7,8 +7,9 @@
 </head>
 <body>
   <header id='banner'>
-   <img src="photo.jpg" /> 
+<!--<img src="photo.jpg" /> -->
   </header>
+  <div id="blur"></div>
 <svg width="640" height="480" xmlns="http://www.w3.org/2000/svg">
  <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
  <g>
@@ -16,8 +17,9 @@
   <path stroke="#D6D7C0" id="svg_4" d="m102.25491,47l-0.35294,0.87948l-0.86275,1.69381l-0.96078,0.70033l-0.88235,0.76547l-0.90196,0.6026l-0.78432,0.63518l-0.27451,0.44788l-0.07844,0.48045l-0.07843,0.48046l-0.07843,0.48046l0.4902,1.05863l0.60784,0.96091c0.47059,0.42345 1.33334,0.71661 2.19608,0.81433l1.43137,-0.14658l1.35294,-0.34202l1.17648,-1.27036l0.39215,-1.44951l0.35294,-1.48209l-0.82352,-2.443l-1.92157,-2.86645z" fill="#111111"/>
  </g>
 </svg>
-  <main> 
+  <main id ="awesome"> 
     <div id="left"></div>
+    <div id="line"></div>
     <div id="video" >
       <div id="player"></div>
     </div>
@@ -33,6 +35,8 @@
     var sound = document.getElementById('sound');
     var video = document.getElementById('video');
     var banner = document.getElementById('banner');
+     var awesome = document.getElementById('awesome');
+     var blur = document.getElementById('blur');
     function bindIt() {
         //widget.bind(SC.Widget.Events.PLAY_PROGRESS, function(data) {
           //console.log(data.relativePosition);

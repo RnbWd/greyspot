@@ -41,28 +41,30 @@
       //var done = false;
       function onPlayerStateChange(event) {
         //playing
-        /*
+        
         if (event.data == 1) {          
-          document.getElementById('sound').style.opacity=0;
-          document.getElementById('video').style.width = '100%';
-          document.getElementById('video').style.top="0px";
-          document.getElementById('banner').style.top="400px";
-          document.getElementById('banner').style.top="400px";
-          document.getElementById('banner').style.webkitAnimation = "weird 1s infinite";
-          document.getElementById('banner').style.webkitAnimationPlayState = "running";
+          //document.getElementById('sound').style.opacity=0;
+          document.getElementById('video').style.width = '80%';
+          document.getElementById('video').style.top="20%";
+          document.getElementById('video').style.left="20%";
+          document.getElementById('video').style.height="70%";
+          //document.getElementById('banner').style.top="400px";
+         // document.getElementById('banner').style.top="400px";
+         // document.getElementById('banner').style.webkitAnimation = "weird 1s infinite";
+         // document.getElementById('banner').style.webkitAnimationPlayState = "running";
           //document.getElementById('sound').style.width="100%";
           //document.getElementById('sound').style.left="0%";
 
         }
         //paused
-        if (event.data == 2) {
-          document.getElementById('sound').style.opacity=1;
-          document.getElementById('video').style.width = '50%';
-          document.getElementById('video').style.top="200px";
-          document.getElementById('banner').style.top="0px";
-          document.getElementById('banner').style.webkitAnimationPlayState = "paused";
+       // if (event.data == 2) {
+         // document.getElementById('sound').style.opacity=1;
+         // document.getElementById('video').style.width = '50%';
+        //  document.getElementById('video').style.top="200px";
+       //   document.getElementById('banner').style.top="0px";
+       //   document.getElementById('banner').style.webkitAnimationPlayState = "paused";
           //document.getElementById('sound').style.width="50%";
           //document.getElementById('sound').style.left="50%";
-        }
-        */
+       // }
+        
       }
