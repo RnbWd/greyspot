@@ -4,39 +4,96 @@
   <meta charset="UTF-8" />
   <title>GreySpot</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+  </style>
+<script src="http://d3lp1msu2r81bx.cloudfront.net/kjs/js/lib/kinetic-v4.7.4.min.js"></script>
 </head>
 <body>
-  <header id='banner'>
-<!--<img src="photo.jpg" /> -->
-  </header>
-  <div id="blur"></div>
-<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg">
- <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
- <g>
-  <title>Layer 1</title>
-  <path stroke="#D6D7C0" id="svg_4" d="m102.25491,47l-0.35294,0.87948l-0.86275,1.69381l-0.96078,0.70033l-0.88235,0.76547l-0.90196,0.6026l-0.78432,0.63518l-0.27451,0.44788l-0.07844,0.48045l-0.07843,0.48046l-0.07843,0.48046l0.4902,1.05863l0.60784,0.96091c0.47059,0.42345 1.33334,0.71661 2.19608,0.81433l1.43137,-0.14658l1.35294,-0.34202l1.17648,-1.27036l0.39215,-1.44951l0.35294,-1.48209l-0.82352,-2.443l-1.92157,-2.86645z" fill="#111111"/>
- </g>
-</svg>
+  <div id='banner'>
+    <canvas id="waveForm"></canvas>
+    <img src='photo1.jpg' />
+  </div>
+<script>
+/*
+  var banner = document.getElementById('banner');
+  var height = banner.offsetHeight;
+  var width = banner.offsetWidth;
+  var canvas = document.getElementById('waveForm');
+  var ctx = canvas.getContext('2d');
+  canvas.width = width;
+  canvas.height = height;
+
+  
+
+  var img = new Image();
+  var two = new Image();
+  img.onload = function() {
+     //ctx.drawImage(img,0,0,500,270);
+     //ctx.drawImage(two,0,0,500,250);
+     //ctx.save();
+  }
+  two.onload = function() {
+    ctx.drawImage(two,width*0.18,0,width*0.64,height);
+    ctx.fillStyle = "#232323";
+    ctx.save();
+    ctx.globalCompositeOperation = 'source-atop';
+    ctx.fillRect(0,0,width,height);
+    ctx.fillStyle = "#232323";
+
+  }
+  //img.src = 'photo1.JPG';
+  two.src = 'wave1.png';
+  */
+</script>
+
   <main id ="awesome"> 
     <div id="left"></div>
     <div id="line"></div>
-    <div id="video" >
+    <!--<div id="video" >
       <div id="player"></div>
-    </div>
+    </div> 
+64% 100%;
+
+  <script src="youtube.js"></script>
+-->
     <div id="right"></div>
-    <script src="youtube.js"></script>
+    <div id="video" ></div>
     <script src="api.js"></script>
     <div id="sound">
       <iframe id='grey' width="100%" height="100%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/3916568"></iframe>
     </div>
   </main>
   <script>
-   var widget = SC.Widget(document.getElementById('grey'));
+   
+
+    var widget = SC.Widget(document.getElementById('grey'));
     var sound = document.getElementById('sound');
-    var video = document.getElementById('video');
-    var banner = document.getElementById('banner');
-     var awesome = document.getElementById('awesome');
-     var blur = document.getElementById('blur');
+    //var video = document.getElementById('video');
+    
+    var awesome = document.getElementById('awesome');
+    var blur = document.getElementById('blur');
+
+    widget.bind(SC.Widget.Events.READY, function() {
+      widget.getSounds(function(data) {
+
+        for (var i = 0; i < 10; i++) {
+          console.log(data[i].title);
+        }
+        
+        console.log(data[0].waveform_url)
+        //two.src = data[1].waveform_url;
+       
+      });
+    });
+
+
+
+
+
     function bindIt() {
         //widget.bind(SC.Widget.Events.PLAY_PROGRESS, function(data) {
           //console.log(data.relativePosition);
@@ -53,6 +110,37 @@
           banner.style.webkitFilter = "invert(0%)"
         });
       };
+      (function() {
+        var mousePos;
+        //banner.onmouseover = handleMouseMove;
+        window.onmousemove = handleMouseMove;
+        //setInterval(getMousePosition, 100); // setInterval repeats every X ms
+
+        function handleMouseMove(event) {
+            event = event || window.event; // IE-ism
+            mousePos = {
+                x: event.clientX,
+                y: event.clientY
+            };
+            //console.log(mousePos.x, mousePos.y)
+            if (mousePos.y > 200) {
+              console.log(mousePos.y);
+            }
+        }
+
+        function getMousePosition() {
+            var pos = mousePos;
+            if (!pos) {
+                // We haven't seen any movement yet
+            }
+            else {
+                console.log(pos.x, pos.y);
+            }
+        }
+    })();
+
+
+
   </script>
 </body>
 </html>
