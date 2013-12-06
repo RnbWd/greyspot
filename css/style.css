@@ -455,7 +455,7 @@ img {
 }
 
 body {
-  background: url('../img/fabric.jpg') fixed center;
+  background: url('../images/fabric.jpg') fixed center;
 
 }
 #banner {
@@ -492,7 +492,7 @@ body {
   position: fixed;
   left: 18%;
   top: 0%;
-  background: url('../img/webtreats-1.png') fixed center;
+  background: url('../images/webtreats-1.png') fixed center;
   opacity: 1;
   height: 36%;
   max-width: 64%;
@@ -565,7 +565,7 @@ body {
   margin-top: 10%;
   color: #FFFFFF;
   text-shadow: 1px 1px 1px orange;
-  -webkit-animation: hue 10s linear infinite;
+  -webkit-animation: hue 10s linear 10;
 
 }
 
