@@ -117,6 +117,7 @@
     function whatever() {this.el.addEventListener('click', function(event) {
           event.stopPropagation();
           widget.skip(this.value);
+          widget.play();
           }, false);
 }
     function skip() {
