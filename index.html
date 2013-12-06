@@ -4,96 +4,126 @@
   <meta charset="UTF-8" />
   <title>GreySpot</title>
   <link rel="stylesheet" type="text/css" href="style.css">
-  <style>
-    body {
-      margin: 0px;
-      padding: 0px;
-    }
-  </style>
-<script src="http://d3lp1msu2r81bx.cloudfront.net/kjs/js/lib/kinetic-v4.7.4.min.js"></script>
+  <script src="api.js"></script>
+
 </head>
 <body>
+  <div id="waveform"></div>
   <div id='banner'>
-    <canvas id="waveForm"></canvas>
-    <img src='photo1.jpg' />
+    <div id= 'blur'></div>
+    <img src='photo1.jpg'/>
   </div>
-<script>
-/*
-  var banner = document.getElementById('banner');
-  var height = banner.offsetHeight;
-  var width = banner.offsetWidth;
-  var canvas = document.getElementById('waveForm');
-  var ctx = canvas.getContext('2d');
-  canvas.width = width;
-  canvas.height = height;
+    <iframe allowtransparency="true" scrolling="no" frameborder="no" src="https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fgreyspot&color=orange_white&size=32" style="width: 32px; height: 32px;"></iframe>
+  <div id="slider">
 
-  
-
-  var img = new Image();
-  var two = new Image();
-  img.onload = function() {
-     //ctx.drawImage(img,0,0,500,270);
-     //ctx.drawImage(two,0,0,500,250);
-     //ctx.save();
-  }
-  two.onload = function() {
-    ctx.drawImage(two,width*0.18,0,width*0.64,height);
-    ctx.fillStyle = "#232323";
-    ctx.save();
-    ctx.globalCompositeOperation = 'source-atop';
-    ctx.fillRect(0,0,width,height);
-    ctx.fillStyle = "#232323";
-
-  }
-  //img.src = 'photo1.JPG';
-  two.src = 'wave1.png';
-  */
-</script>
-
-  <main id ="awesome"> 
-    <div id="left"></div>
-    <div id="line"></div>
-    <!--<div id="video" >
-      <div id="player"></div>
-    </div> 
-64% 100%;
-
-  <script src="youtube.js"></script>
--->
-    <div id="right"></div>
-    <div id="video" ></div>
-    <script src="api.js"></script>
-    <div id="sound">
-      <iframe id='grey' width="100%" height="100%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/3916568"></iframe>
+    <div id="media" >
+      
     </div>
-  </main>
-  <script>
+
+  </div>
+
+ <iframe id='grey' width="30%" height="80%" scrolling="yes" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/3916568"></iframe>
+<script>
+
+ var blur = document.getElementById('blur');
+    var img = new Image();
+    img.src = "wave1.png";
+    var widget = SC.Widget(document.getElementById('grey'));
+    //var sound = document.getElementById('sound');
+    var video = document.getElementById('media');
+    var waveform = document.getElementById('waveform');
+    waveform.appendChild(img);
+    var slider = document.getElementById('slider');
+   // var blur = document.getElementById('blur');
+
+   var media = video.getClientRects()[0];
+   var mediaTop = media.top;
+   var mediaLeft = media.left;
+   var mediaBottom = media.bottom;
+   var mediaRight = media.right;
+   var mediaWidth = media.width;
+   var tenPercent = (media.width * 0.1).toFixed(0);
    
 
-    var widget = SC.Widget(document.getElementById('grey'));
-    var sound = document.getElementById('sound');
-    //var video = document.getElementById('video');
-    
-    var awesome = document.getElementById('awesome');
-    var blur = document.getElementById('blur');
+(function() {
+        var mousePos;
+        //banner.onmouseover = handleMouseMove;
+        window.onmousemove = handleMouseMove;
+        //setInterval(getMousePosition, 100); // setInterval repeats every X ms
+
+        function handleMouseMove(event) {
+            event = event || window.event; // IE-ism
+            mousePos = {
+                x: event.clientX,
+                y: event.clientY
+            };
+            if (mousePos.y > mediaTop && mousePos.x > mediaLeft + tenPercent) {
+              console.log(mousePos.x, mousePos.y);
+              move();
+            }
+        }
+        function move() {
+          console.log("what?");
+          document.getElementById('song_0').style.left = mousePos.x - mediaLeft + "px";
+        }
+
+    })();
+   
 
     widget.bind(SC.Widget.Events.READY, function() {
       widget.getSounds(function(data) {
-
-        for (var i = 0; i < 10; i++) {
-          console.log(data[i].title);
+        for (var i = 0; i < 7; i++) {
+          console.log(data[i].title, data[i].artwork_url);
+          var waveform = data[i].waveform_url;
+          var song = new Image();
+          song.src = data[i].artwork_url;
+          var el = document.createElement("div");
+          var title = document.createElement("p");
+          var text = document.createTextNode(data[i].title);
+          title.appendChild(text);
+          el.id = "song_" + i;
+          el.value = i;
+          el.setAttribute('wave',waveform);
+          //this.el.onclick = skip(i);
+          el.appendChild(title);
+          el.appendChild(song);
+          //var width = el.clientWidth;
+          //el.style.position = "absolute";
+          //el.style.left = 300*i + "px";
+          video.appendChild(el);
+          el.addEventListener('click', function(event) {
+            event.stopPropagation();
+            widget.skip(this.value);
+            img.src = this.getAttribute('wave');
+            }, false);
         }
+        console.log(this);
+        console.log(data[0].waveform_url);
         
-        console.log(data[0].waveform_url)
+        //img.src = data[0].waveform_url;
+        //video.appendChild(img);
         //two.src = data[1].waveform_url;
-       
       });
     });
-
-
-
-
-
+    function whatever() {this.el.addEventListener('click', function(event) {
+          event.stopPropagation();
+          widget.skip(this.value);
+          }, false);
+}
+    function skip() {
+      var songs = video.getElementsByTagName('div');
+      //console.log(songs);
+      for (var i = 0; i < songs.length; i++) {
+          this.song = songs[i];
+          this.song.addEventListener("click", function(event) {
+          event.stopPropagation();
+          widget.skip(i);
+        },false)
+        console.log(i);
+      }
+    }
+var timer;
+var count = true;
     function bindIt() {
         //widget.bind(SC.Widget.Events.PLAY_PROGRESS, function(data) {
           //console.log(data.relativePosition);
@@ -110,37 +140,17 @@
           banner.style.webkitFilter = "invert(0%)"
         });
       };
-      (function() {
-        var mousePos;
-        //banner.onmouseover = handleMouseMove;
-        window.onmousemove = handleMouseMove;
-        //setInterval(getMousePosition, 100); // setInterval repeats every X ms
-
-        function handleMouseMove(event) {
-            event = event || window.event; // IE-ism
-            mousePos = {
-                x: event.clientX,
-                y: event.clientY
-            };
-            //console.log(mousePos.x, mousePos.y)
-            if (mousePos.y > 200) {
-              console.log(mousePos.y);
-            }
-        }
-
-        function getMousePosition() {
-            var pos = mousePos;
-            if (!pos) {
-                // We haven't seen any movement yet
-            }
-            else {
-                console.log(pos.x, pos.y);
-            }
-        }
-    })();
-
-
-
+      widget.bind(SC.Widget.Events.PLAY_PROGRESS, function(data) {
+        blur.style.width = data.relativePosition*64 + "%";
+          if (count) {
+            timer = data.currentPosition.toPrecision(2);
+            count = false;
+          }
+          if (timer != data.currentPosition.toPrecision(2)) {
+             console.log(timer);
+             count=true;
+          }
+        });
   </script>
 </body>
 </html>
