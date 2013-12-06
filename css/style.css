@@ -455,7 +455,7 @@ img {
 }
 
 body {
-  background: url('fabric.jpg') fixed center;
+  background: url('../images/fabric.jpg') fixed center;
 
 }
 #banner {
@@ -492,7 +492,7 @@ body {
   position: fixed;
   left: 18%;
   top: 0%;
-  background: url('funky9.jpg') fixed center;
+  background: url('../images/webtreats-1.png') fixed center;
   opacity: 1;
   height: 36%;
   max-width: 64%;
@@ -512,19 +512,19 @@ body {
   height: 36%;
   width: 64%;
   left: 18%;
-  box-shadow: -5px 0 50px 15px #AAAAAA inset;
+  box-shadow: 0 0 10px 3px orange;
   -webkit-transition: all 2s;
-
+ -webkit-animation: hue 10s linear 10;
 
 }
 #waveform img {
   position: relative;
   height: 100%;
   -webkit-animation-name: none;
-  -webkit-filter: contrast(0%);
+  -webkit-filter: invert(0.81);
   width: 100%;
   -webkit-transition: all 1s;
-  box-shadow: 0 0 10px 3px #111111;
+  box-shadow: -5px 0 50px 15px  #111111 inset;
  
   
 }
@@ -565,7 +565,7 @@ body {
   margin-top: 10%;
   color: #FFFFFF;
   text-shadow: 1px 1px 1px orange;
-  -webkit-animation: hue 10s linear infinite;
+  -webkit-animation: hue 10s linear 10;
 
 }
 
@@ -613,8 +613,8 @@ footer {
   color: white;
   left: 30%;
   width: 40%;
-  height:10%;
-  top:90%;
+  height:5%;
+  top:95%;
   z-index: 13;
   text-align: center;
 }
