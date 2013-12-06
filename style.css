@@ -423,6 +423,21 @@ table {
   }
 }
 
+@-webkit-keyframes opac {
+  0% {
+   opacity: 0.2;
+  }
+  33% {
+    opacity: 0.5;
+  }
+  66% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
 @-webkit-keyframes box {
   0% {
     box-shadow: 0 0 15px 0px #FFFFFF;
@@ -497,6 +512,7 @@ body {
   opacity: 0.8;
   -webkit-transition: all 0.001s;
   border-right: 5px solid orange;
+  
 
 }
 
@@ -515,11 +531,11 @@ body {
 #waveform img {
   position: relative;
   height: 100%;
-  -webkit-animation-name: none;
-  -webkit-filter: invert(94.2%);
+  
+  -webkit-filter: grayscale(100%);
   width: 100%;
   -webkit-transition: all 1s;
-  box-shadow: 0 0 10px 3px #111111;
+  box-shadow: 0 0 10px 3px #FFFFFF;
  
   
 }
