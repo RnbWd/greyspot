@@ -14,15 +14,15 @@
     <img src='photo1.jpg'/>
   </div>
     <iframe allowtransparency="true" scrolling="no" frameborder="no" src="https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fgreyspot&color=orange_white&size=32" style="width: 32px; height: 32px;"></iframe>
+    <div id="meta"></div>
   <div id="slider">
 
-    <div id="media" >
-      
-    </div>
+    <div id="songs"></div>
 
   </div>
 
  <iframe id='grey' width="30%" height="80%" scrolling="yes" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/3916568"></iframe>
+ <footer>@Contact Info</footer>
 <script>
 
  var blur = document.getElementById('blur');
@@ -30,12 +30,14 @@
     img.src = "wave1.png";
     var widget = SC.Widget(document.getElementById('grey'));
     //var sound = document.getElementById('sound');
-    var video = document.getElementById('media');
+   
     var waveform = document.getElementById('waveform');
     waveform.appendChild(img);
     var slider = document.getElementById('slider');
+    var songs = document.getElementById('songs');
+    var meta = document.getElementById('meta');
    // var blur = document.getElementById('blur');
-
+/*
    var media = video.getClientRects()[0];
    var mediaTop = media.top;
    var mediaLeft = media.left;
@@ -43,7 +45,7 @@
    var mediaRight = media.right;
    var mediaWidth = media.width;
    var tenPercent = (media.width * 0.1).toFixed(0);
-   
+   */
 
 (function() {
         var mousePos;
@@ -57,15 +59,12 @@
                 x: event.clientX,
                 y: event.clientY
             };
-            if (mousePos.y > mediaTop && mousePos.x > mediaLeft + tenPercent) {
+            
               console.log(mousePos.x, mousePos.y);
-              move();
-            }
-        }
-        function move() {
-          console.log("what?");
-          document.getElementById('song_0').style.left = mousePos.x - mediaLeft + "px";
-        }
+            
+          }
+        
+        
 
     })();
    
@@ -83,18 +82,20 @@
           title.appendChild(text);
           el.id = "song_" + i;
           el.value = i;
+          el.setAttribute('name',data[i].title)
           el.setAttribute('wave',waveform);
           //this.el.onclick = skip(i);
           el.appendChild(title);
           el.appendChild(song);
           //var width = el.clientWidth;
           //el.style.position = "absolute";
-          //el.style.left = 300*i + "px";
-          video.appendChild(el);
+          el.style.left = 100*i + "%";
+          songs.appendChild(el);
           el.addEventListener('click', function(event) {
             event.stopPropagation();
             widget.skip(this.value);
-            img.src = this.getAttribute('wave');
+            //img.src = this.getAttribute('wave');
+            //meta.innerHTML = this.getAttribute('name');
             }, false);
         }
         console.log(this);
@@ -150,7 +151,15 @@ var count = true;
              console.log(timer);
              count=true;
           }
+
+      });
+
+      widget.bind(SC.Widget.Events.PLAY, function(data) {
+        widget.getCurrentSound(function(data) {
+          meta.innerHTML = data.title;
+          img.src = data.waveform_url;
         });
+      });
   </script>
 </body>
 </html>
