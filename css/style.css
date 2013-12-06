@@ -455,7 +455,7 @@ img {
 }
 
 body {
-  background: url('../images/fabric.jpg') fixed center;
+  background: url('http://imgur.com/xlIq5gS.jpg') fixed center;
 
 }
 #banner {
@@ -492,7 +492,7 @@ body {
   position: fixed;
   left: 18%;
   top: 0%;
-  background: url('../images/webtreats-1.png') fixed center;
+  background: url('http://imgur.com/I3d3OjA.png') fixed center;
   opacity: 1;
   height: 36%;
   max-width: 64%;
