@@ -414,12 +414,12 @@ table {
   box-sizing: border-box;
 }
 
-@-webkit-keyframes intro {
+@-webkit-keyframes hue {
   0% {
-    opacity: 0;
+    -webkit-filter: hue-rotate(0deg);
   }
   100% {
-    opacity: 1;
+    -webkit-filter: hue-rotate(360deg);
   }
 }
 
@@ -434,7 +434,13 @@ table {
     box-shadow: 0 0 15px 0px #FFFFFF;
   }
 }
+
+img {
+  -webkit-animation: hue 10s linear infinite;
+}
+
 body {
+  /*
   background:
   linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
   linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
@@ -444,6 +450,9 @@ body {
   linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
   background-color: #131313;
   background-size: 20px 20px;
+  */
+   -webkit-animation: hue 10s linear infinite;
+  background: url('fabric.jpg') fixed center;
 }
 #banner {
   position: fixed;
@@ -474,13 +483,12 @@ body {
   z-index: 1;
   opacity: 1;
 
-
 }
 #blur {
   position: fixed;
   left: 18%;
   top: 0%;
-  background: grey;
+  background: url('funky.jpg') fixed center;
   opacity: 1;
   height: 36%;
   max-width: 64%;
@@ -502,10 +510,12 @@ body {
   box-shadow: -5px 0 50px 15px #AAAAAA inset;
   -webkit-transition: all 2s;
 
+
 }
 #waveform img {
   position: relative;
   height: 100%;
+  -webkit-animation-name: none;
   -webkit-filter: invert(94.2%);
   width: 100%;
   -webkit-transition: all 1s;
@@ -515,41 +525,31 @@ body {
 }
 #slider {
   position: fixed;
-  top: 38%;
+  top: 40%;
   width: 100%;
   height: 65%;
   background: inherit;
   z-index: 10;
   overflow: scroll;
-   
  
 }
 
 #media {
-     -webkit-transition: all 0.5s;
-     opacity: 1;
-     position: fixed;
-     top: 46%;
-     width: 55%;
-     height: 45%;
-     left: 25%;
-     
-     /*
-      -webkit-animation-name: box;
-      -webkit-animation-duration: 1s;
-      -webkit-animation-iteration-count: infinite;
-      */
-      overflow: scroll;
-      color: grey;
-
+  -webkit-transition: all 0.5s;
+  opacity: 1;
+  position: fixed;
+  top: 46%;
+  width: 55%;
+  height: 45%;
+  left: 25%;
+  overflow: scroll;
+  color: grey;
 
 }
 .hide {
   display: none;
 }
-#songs {
 
-}
 #songs div {
   position: absolute;
   display: inline-block;
@@ -557,11 +557,14 @@ body {
   -webkit-transition: all 0.5s linear;
   margin-left:40%;
   text-align: center;
-  box-shadow: 0 0 15px 0px #FFFFFF;
+  box-shadow: 0 0 15px 0px orange;
   margin-top: 10%;
-  color: grey;
+  color: #FFFFFF;
+  text-shadow: 1px 1px 1px orange;
+  -webkit-animation: hue 10s linear infinite;
 
 }
+
 
 #songs div:last-child:after{
    content: '';
@@ -612,25 +615,49 @@ footer {
   text-align: center;
 }
 
-#facebook {
+#facebook, #box {
   position: fixed;
   top: 41%;
   z-index: 42;
-  left: 40%;
-  width: 7%;
-  height: 6.2%;
-
+  left: 33%;
+  
+}
+#box {
+  width: 2.7%;
+  height: 5%;
+  background: #546171;
+  border-top-left-radius: 2px;
 }
 #soundCloud {
   position: fixed;
   top: 41%;
   z-index: 42;
   left: 47%;
+
   
 }
+#instagram {
+  position: fixed;
+  top: 41%;
+  z-index: 42;
+  left: 40%;
+  
+}
+#youtube {
+  position: fixed;
+  top: 41%;
+  z-index: 42;
+  left: 54%;
+  
+}
+#twitter {
+  position: fixed;
+  top: 41%;
+  z-index: 42;
+  left: 61%;
+  
 
-
-
+}
 
 
 
