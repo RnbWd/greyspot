@@ -6,11 +6,13 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
   <title>GreySpot</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="css/buttons.css">
   <script src="javascript/api.js"></script>
 
 </head>
 <body>
   <div id="waveform"></div>
+ <button id="colors" class="button button-3d">Psychedelic</button>
   <div id='banner'>
     <div id= 'blur'></div>
 
@@ -45,6 +47,30 @@
     var slider = document.getElementById('slider');
     var songs = document.getElementById('songs');
     var meta = document.getElementById('meta');
+    var colors = document.getElementById('colors');
+    
+
+    colors.addEventListener("click", function(){
+      var images = document.getElementsByTagName('img');
+      for (var i = 0; i < images.length; i++) {
+        if (images[i].style.webkitAnimationPlayState == "paused" || images[i].style.webkitAnimationPlayState == "") {
+            images[i].style.webkitAnimationPlayState = "running";
+        }else if(images[i].style.webkitAnimationPlayState == "running") {
+            images[i].style.webkitAnimationPlayState = "paused"; // assuming you want to toggle
+        }
+        console.log(images[i].style.webkitAnimationPlayState);
+      }
+      var divs = document.getElementsByTagName('div');
+      for (var i = 0; i < images.length; i++) {
+        if (divs[i].style.webkitAnimationPlayState == "paused" || divs[i].style.webkitAnimationPlayState == "") {
+            divs[i].style.webkitAnimationPlayState = "running";
+        }else if(divs[i].style.webkitAnimationPlayState == "running") {
+            divs[i].style.webkitAnimationPlayState = "paused"; // assuming you want to toggle
+        }
+        console.log(images[i].style.webkitAnimationPlayState);
+      }
+    });
+    
    // var blur = document.getElementById('blur');
 /*
    var media = video.getClientRects()[0];
