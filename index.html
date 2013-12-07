@@ -12,7 +12,7 @@
 </head>
 <body>
   <div id="waveform"></div>
- <button id="colors" class="button button-3d">Psychedelic</button>
+ <button id="colors" class="button button-pill button-border">Psychedelic</button>
   <div id='banner'>
     <div id= 'blur'></div>
 
@@ -49,6 +49,13 @@
     var meta = document.getElementById('meta');
     var colors = document.getElementById('colors');
     
+    songs.onclick = function() {
+      songs.className = "magictime perspectiveUp";
+    }
+    colors.onmouseout = function() {
+      img.className = "magictime perspectiveUpReturn";
+    }
+
 
     colors.addEventListener("click", function(){
       var images = document.getElementsByTagName('img');
@@ -58,7 +65,7 @@
         }else if(images[i].style.webkitAnimationPlayState == "running") {
             images[i].style.webkitAnimationPlayState = "paused"; // assuming you want to toggle
         }
-        console.log(images[i].style.webkitAnimationPlayState);
+        
       }
       var divs = document.getElementsByTagName('div');
       for (var i = 0; i < images.length; i++) {
@@ -67,8 +74,12 @@
         }else if(divs[i].style.webkitAnimationPlayState == "running") {
             divs[i].style.webkitAnimationPlayState = "paused"; // assuming you want to toggle
         }
-        console.log(images[i].style.webkitAnimationPlayState);
       }
+      if (this.style.webkitAnimationPlayState == "paused" ) {
+            this.style.webkitAnimationPlayState = "running";
+        }else if(this.style.webkitAnimationPlayState == "running" || this.style.webkitAnimationPlayState == "") {
+            this.style.webkitAnimationPlayState = "paused"; // assuming you want to toggle
+        }
     });
     
    // var blur = document.getElementById('blur');
@@ -96,12 +107,12 @@
             };
             
               console.log(mousePos.x, mousePos.y);
-            
+             
           }
         
         
 
-    })();
+    });
    
 
     widget.bind(SC.Widget.Events.READY, function() {
