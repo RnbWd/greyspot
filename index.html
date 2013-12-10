@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GreySpot</title>
+  <link rel="stylesheet" href="foundation/css/foundation.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="foundation/js/modernizr.js"></script>
   <link rel="stylesheet" href="css/buttons.css">
   <script src="javascript/api.js"></script>
 
@@ -21,7 +22,7 @@
     <div id="meta"></div>
   <div id="slider">
 
-    <div id="songs"></div>
+    <ul id="songs" data-orbit ></ul>
 
   </div>
 <div id="box"></div>
@@ -122,20 +123,23 @@
           var waveform = data[i].waveform_url;
           var song = new Image();
           song.src = data[i].artwork_url;
-          var el = document.createElement("div");
-          var title = document.createElement("p");
+          var el = document.createElement("li");
+          var title = document.createElement("h1");
+          var div = document.createElement("div");
           var text = document.createTextNode(data[i].title);
           title.appendChild(text);
           el.id = "song_" + i;
           el.value = i;
-          el.setAttribute('name',data[i].title)
+          el.setAttribute('data-orbit-slide',data[i].title)
           el.setAttribute('wave',waveform);
           //this.el.onclick = skip(i);
-          el.appendChild(title);
-          el.appendChild(song);
+
+          div.appendChild(title);
+          div.appendChild(song);
+          el.appendChild(div);
           //var width = el.clientWidth;
           //el.style.position = "absolute";
-          el.style.left = 100*i + "%";
+          //el.style.left = 100*i + "%";
           songs.appendChild(el);
           el.addEventListener('click', function(event) {
             event.stopPropagation();
@@ -208,5 +212,11 @@ var count = true;
         });
       });
   </script>
+   <script src="foundation/js/jquery.js"></script>
+    <script src="foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+
+    </script>
 </body>
 </html>

@@ -555,10 +555,11 @@ body {
 #slider {
   position: fixed;
   top: 40%;
-  width: 100%;
+  width: 80%;
   height: 65%;
   z-index: 10;
   overflow: scroll;
+  left: 10%;
  
 }
 
@@ -578,7 +579,7 @@ body {
   display: none;
 }
 
-#songs div {
+/*#songs div {
   position: absolute;
   display: inline-block;
   width: 13em;
@@ -597,20 +598,15 @@ body {
   background: url("../images/funky8.jpg") fixed top;
   border-radius: 50px;
 }
+
+*/
+
+#songs h1 {
+  color: white;
+  text-align: center;
+}
 #songs img {
-  border-radius: 20px;
-}
-#songs p {
-  background: url('../images/fabric.jpg') fixed;
-   border-radius: 10px;
-}
-
-
-#songs div:last-child:after{
-   content: '';
-   width: 300%;
-   display: inline-block;
-
+  margin-left: 40%;
 }
 .show {
   display: inline-block;
