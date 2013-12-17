@@ -1,47 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GreySpot</title>
-  <link rel="stylesheet" href="foundation/css/foundation.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <script src="foundation/js/modernizr.js"></script>
-  <link rel="stylesheet" href="css/buttons.css">
-  <script src="javascript/api.js"></script>
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>greyspot</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="styles/3b2b5b01.main.css">
+        <script src="scripts/vendor/d7100892.modernizr.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="container">
 
-</head>
-<body>
-  <div id="waveform"></div>
- <button id="colors" class="button button-pill button-border">Psychedelic</button>
-  <div id='banner'>
-    <div id= 'blur'></div>
+         <!--Banner-->
+        <div class="header">
+            <img class="img-responsive" src="images/7fbde7ce.old-logo.jpg">
+        </div>
+         <!--Icons-->
+        <div id="icons-container">
+              <a href="https://www.facebook.com/Greyspot"> <img src="images/facebook-square-icon.svg" class="icon" id="facebook"></a>
 
-    <img src='http://i.imgur.com/O5Po3rs.jpg'/>
-  </div>
-    <div id="meta"></div>
-  <div id="slider">
+              <a href="http://instagram.com/greyspotmusic"><img src="images/instagram-icon.svg" class="icon" id="instagram"></a>
 
-    <ul id="songs" data-orbit ></ul>
+              <a href="http://www.youtube.com/user/Greyspot88"><img src="images/youtube.svg" class="icon" id="youtube-icon"></a> 
 
-  </div>
-<div id="box"></div>
- <iframe id='grey' width="30%" height="80%" scrolling="yes" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/3916568"></iframe>
- <footer>@Contact Info</footer>
+              <a href="https://twitter.com/GreyspotMusic"><img src="images/twitter_alt.svg" class="icon" id="twitter"></a>
 
-  <a href = "https://www.facebook.com/Greyspot"> <img src='http://i.imgur.com/QqQ7bam.png' id='facebook'/></a>
-  <a href = "http://instagram.com/greyspotmusic"><img src='http://i.imgur.com/pJIkVH5.png' id='instagram'/></a>
-  <a href = "http://www.youtube.com/user/Greyspot88"><img src='http://i.imgur.com/5feuD6k.png' id='youtube'/></a>
-  <a href = "https://twitter.com/GreyspotMusic"><img src='http://i.imgur.com/L4oD63s.png' id='twitter'/></a>
-  <a href = "https://soundcloud.com/greyspot"><img src='http://i.imgur.com/kokXemu.png' id='soundCloud'/></a>
+              <a href="https://soundcloud.com/greyspot"><img src="images/soundcloud.svg" class="icon" id="soundCloud"></a>
+        </div>   
 
-<script>
+        <div id="media">
+            <div class="row">
 
-   <script src="foundation/js/jquery.js"></script>
-    <script src="foundation/js/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
+            <!--Media Player-->
+            <div class="col-sm-4 col-sm-push-4">
+                <div id="player" class="">
+                    <!--Title-->
+                    <div id="song-title" class="center-block funky">Loading Music Player...</div>
 
-    </script>
+                    <div id="frame">
+                        <iframe id="grey" width="100%" height="180px" scrolling="yes" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/3916568&amp;show_artwork=false"></iframe>
+                    </div>
+
+                    <!--Buttons-->
+                    <button type="button" class="btn btn-default btn-sm" onclick="widget.prev()">
+                        <span class="glyphicon glyphicon-step-backward"></span>
+                    </button>
+
+                     <button type="button" class="btn btn-default btn-sm" onclick="widget.toggle()">
+                        <span class="glyphicon glyphicon-play player-play"></span>
+                    </button>
+
+                    <button type="button" class="btn btn-default btn-sm" onclick="widget.pause()">
+                        <span class="glyphicon glyphicon-stop"></span>
+                    </button>
+
+                    <button type="button" class="btn btn-default btn-sm" onclick="widget.next()">
+                        <span class="glyphicon glyphicon-step-forward"></span>
+                    </button>
+                </div>
+            </div>
+           
+
+            <!--Song List -->
+            <div id="soundPlayer" class="col-sm-4 col-sm-pull-4">
+                <div id="songs">
+               <!-- Song Player with list of Songs loaded from Soundcloud -->
+                </div>
+            </div>
+                
+           
+            <!--Youtube Modal-->
+            <div class="col-sm-4">
+                <div id="video-container">
+                    <button id="da-button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"></button>
+           
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-body">
+                                <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/xv7NtnoQopA?autohide=1" frameborder="0" allowfullscreen=""></iframe>
+                          </div>
+                        </div><!-- /.modal-content -->
+                      </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+        <!--NAME PRICE <div id="name-price" class="alert alert-info">
+                <form method="post" action="https://www.paypal.com/cgi-bin/webscr" class="form-inline" role="form" target="_top">
+                <div class="form-group">
+
+                  <input type="hidden" name="button" value="donate">
+                  <input type="hidden" name="item_name" value="New Song">
+                  
+                  <input type="number" class="form-control" name="amount" id="price" min="0" step="0.11" placeholder="$1.01">
+                  <input type="hidden" name="cmd" value="_donations">
+                </div>
+                <div class="form-group">
+                <input type="hidden" name="business" value="greyspotmanagement@gmail.com"><input type="hidden" name="bn" value="JavaScriptButton_donate">
+                <input type="hidden" name="env" value="www">
+                <button type="submit" class="btn btn-default">Name Your Price</button>
+                </div>
+            </form>
+        </div> -->
+                  <!--song download sample  <button type="button" class="btn btn-default btn-xs pull-right drop waveOn">
+                        <a href="https://api.soundcloud.com/tracks/100514599/download?client_id=b45b1aa10f1ac2941910a7f0d10f8e28"><span class= "glyphicon glyphicon-tint"></span></a>
+                    </button> -->
+                   
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+
+        <script src="scripts/d566ce44.vendor.js"></script>
+
+        <script src="scripts/20bdd8fe.plugins.js"></script>
+
+        <script src="scripts/d9011c89.main.js"></script>
+
 </body>
 </html>
