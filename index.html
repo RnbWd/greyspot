@@ -22,6 +22,10 @@
         <div class="header hidden-xs">
             <img class="img-responsive" src="images/7fbde7ce.old-logo.jpg">
         </div>
+        <!-- Mobile -->
+        <div class="visible-xs">
+          <iframe id="ytplayer" type="text/html" width="300px" src="https://www.youtube.com/embed/xv7NtnoQopA?autohide=1" frameborder="0" allowfullscreen=""></iframe>
+        </div>
          <!--Icons-->
         <div id="icons-container">
               <a href="https://www.facebook.com/Greyspot"> <img src="images/facebook-square-icon.svg" class="icon" id="facebook"></a>
@@ -35,11 +39,11 @@
               <a href="https://soundcloud.com/greyspot"><img src="images/soundcloud.svg" class="icon" id="soundCloud"></a>
         </div>   
 
-        <div id="media">
+        <div id="media" class="hidden-xs">
             <div class="row">
 
             <!--Media Player-->
-            <div class="col-sm-4 col-sm-push-4 hidden-xs">
+            <div class="col-sm-4 col-sm-push-4">
                 <div id="player" class="">
                     <!--Title-->
                     <div id="song-title" class="center-block funky">Loading Music Player...</div>
@@ -69,7 +73,7 @@
            
 
             <!--Song List -->
-            <div id="soundPlayer" class="col-sm-4 col-sm-pull-4 hidden-xs">
+            <div id="soundPlayer" class="col-sm-4 col-sm-pull-4">
                 <div id="songs">
                <!-- Song Player with list of Songs loaded from Soundcloud -->
                 </div>
