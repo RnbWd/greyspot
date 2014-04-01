@@ -7630,46 +7630,19 @@ td.visible-print {
 }
 /* line 5, ../../app/styles/main.scss */
 body {
-  background: url("../images/ffee1d87.space.jpg") center fixed;
-  background-size: cover;
+  background: url("../images/greyspotbg.jpg") center top no-repeat;
+  background-color: #332e2e;
   color: #fafafa;
+
 }
 
 /* line 12, ../../app/styles/main.scss */
 .container {
   width: 100%;
+
 }
 
-/* line 16, ../../app/styles/main.scss */
-.header {
-  display: block;
-  height: 90%;
-  width: 100%;
-  min-width: 400px;
-  position: relative;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  overflow: hidden;
-  margin-bottom: -40px;
-}
 
-/* line 30, ../../app/styles/main.scss */
-.header .img-responsive {
-  opacity: 0.5;
-  min-height: 89%;
-  max-height: 90%;
-  min-width: 400px;
-  margin-top: 2%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* line 39, ../../app/styles/main.scss */
-.header .row {
-  height: 100%;
-}
 
 /* line 43, ../../app/styles/main.scss */
 #icons-container {
@@ -7678,7 +7651,9 @@ body {
   z-index: 999;
   margin-left: auto;
   margin-right: auto;
-}
+  padding-top: 260px;
+  margin-bottom: 30px;
+  }
 
 /* line 51, ../../app/styles/main.scss */
 .icon {
@@ -7724,10 +7699,8 @@ body {
 /* line 85, ../../app/styles/main.scss */
 #media {
   position: relative;
-  margin-top: 5%;
-  max-height: 400px;
-  margin-bottom: 5%;
-  overflow: hidden;
+
+  margin-top: 33px;
 }
 
 /* line 97, ../../app/styles/main.scss */
@@ -7766,7 +7739,14 @@ body {
   background: url("../images/4f4fa9f7.youtube-blur.jpg") center;
   background-size: cover;
   height: 400px;
+
 }
+.videopl {
+  padding-left: 70px;
+  overflow: hidden;
+  padding-top: 4%;
+}
+
 
 /* line 131, ../../app/styles/main.scss */
 #video-container:hover {
@@ -7827,6 +7807,21 @@ body {
   background: transparent;
   height: 80%;
   width: 80%;
+}
+#soundPlayer {
+ padding-right: 70px;
+ padding-top: 4%;
+}
+
+
+@media (max-width: 991px) {
+  #soundPlayer {
+    padding: 2%;
+  }
+  .videopl {
+    padding: 2%;
+  }
+
 }
 
 @keyframes titleMove {
@@ -7919,17 +7914,4 @@ body {
   -webkit-animation-delay: 0s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-play-state: running;
-}
-
-@media (max-width: 991px) {
-  /* line 270, ../../app/styles/main.scss */
-  #songs li {
-    width: 70%;
-    margin: 0 auto;
-  }
-
-  /* line 274, ../../app/styles/main.scss */
-  #songs {
-    margin-top: 10px;
-  }
 }

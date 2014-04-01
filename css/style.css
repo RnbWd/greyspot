@@ -464,7 +464,7 @@ body {
   -ms-backface-visibility: hidden;
   -o-backface-visibility: hidden;
   backface-visibility: hidden;
-  background: url('http://i.imgur.com/qy82Voa.jpg') fixed center;
+  background: url('../images/greyspotbg.jpg') fixed center;
 
 }
 #colors {
@@ -513,7 +513,7 @@ body {
   position: fixed;
   left: 18%;
   top: 0%;
-  background: url('http://i.imgur.com/I3d3OjA.png') fixed center;
+  background: url('../images/greyspotbg.jpg') fixed center;
   opacity: 1;
   height: 36%;
   max-width: 64%;

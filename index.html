@@ -13,21 +13,28 @@
         <script src="scripts/vendor/d7100892.modernizr.js"></script>
     </head>
     <body>
+
+       
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <div class="container">
 
          <!--Banner-->
-        <div class="header hidden-xs">
-            <img class="img-responsive" src="images/7fbde7ce.old-logo.jpg">
-        </div>
+
         <!-- Mobile -->
-        <div class="visible-xs">
+        <!--<div class="visible-xs">
           <iframe id="ytplayer" type="text/html" width="300px" src="https://www.youtube.com/embed/xv7NtnoQopA?autohide=1" frameborder="0" allowfullscreen=""></iframe>
-        </div>
+        </div>-->
          <!--Icons-->
-        <div id="icons-container">
+        
+
+        <div id="media" class="">
+            <div class="row">
+
+            <!--Media Player-->
+            <div class="col-md-4 col-md-push-4">
+             <div id="icons-container">
               <a href="https://www.facebook.com/Greyspot"> <img src="images/facebook-square-icon.svg" class="icon" id="facebook"></a>
 
               <a href="http://instagram.com/greyspotmusic"><img src="images/instagram-icon.svg" class="icon" id="instagram"></a>
@@ -37,22 +44,15 @@
               <a href="https://twitter.com/GreyspotMusic"><img src="images/twitter_alt.svg" class="icon" id="twitter"></a>
 
               <a href="https://soundcloud.com/greyspot"><img src="images/soundcloud.svg" class="icon" id="soundCloud"></a>
-        </div>   
-
-        <div id="media" class="hidden-xs">
-            <div class="row">
-
-            <!--Media Player-->
-            <div class="col-sm-4 col-sm-push-4">
+            </div> 
+              <!--
                 <div id="player" class="">
-                    <!--Title-->
                     <div id="song-title" class="center-block funky">Loading Music Player...</div>
 
                     <div class="hidden-xs" id="frame">
                         <iframe class="hidden-xs" id="grey" width="100%" height="180px" scrolling="yes" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/3916568&amp;show_artwork=false"></iframe>
                     </div>
 
-                    <!--Buttons-->
                     <button type="button" class="btn btn-default btn-sm" onclick="widget.prev()">
                         <span class="glyphicon glyphicon-step-backward"></span>
                     </button>
@@ -69,19 +69,21 @@
                         <span class="glyphicon glyphicon-step-forward"></span>
                     </button>
                 </div>
+              -->
             </div>
            
 
             <!--Song List -->
-            <div id="soundPlayer" class="col-sm-4 col-sm-pull-4">
-                <div id="songs">
-               <!-- Song Player with list of Songs loaded from Soundcloud -->
-                </div>
+            <div id="soundPlayer" class="col-md-4 col-md-pull-4">
+              <iframe width="100%" height="400" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/127176729&amp;auto_play=false&amp;hide_related=false&amp;visual=true"></iframe>
+                 <!--<div id="songs">
+                Song Player with list of Songs loaded from Soundcloud 
+                </div>-->
             </div>
                 
            
             <!--Youtube Modal-->
-            <div class="col-sm-4">
+            <div class="col-md-4 videopl">
                 <div id="video-container">
                     <button id="da-button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"></button>
            
@@ -100,7 +102,7 @@
         </div>
         </div>
     </div>
-
+      
         <!--NAME PRICE <div id="name-price" class="alert alert-info">
                 <form method="post" action="https://www.paypal.com/cgi-bin/webscr" class="form-inline" role="form" target="_top">
                 <div class="form-group">
@@ -137,7 +139,7 @@
 
         <script src="scripts/20bdd8fe.plugins.js"></script>
 
-        <script src="scripts/d9011c89.main.js"></script>
+      <!--  <script src="scripts/d9011c89.main.js"></script> -->
 
 </body>
 </html>
