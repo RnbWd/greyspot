@@ -7821,11 +7821,13 @@ body {
   .videopl {
     padding: 2%;
   }
+  
+}
+@media (max-width: 767px) {
   #icons-container {
     padding-top: 150px;
   }
 }
-
 @keyframes titleMove {
   /* line 205, ../../app/styles/main.scss */
   0% {
