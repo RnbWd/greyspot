@@ -7630,8 +7630,7 @@ td.visible-print {
 }
 /* line 5, ../../app/styles/main.scss */
 body {
-  background: url("../images/greyspotbg.jpg") center top no-repeat;
-  background-size: contain;
+  
   background-color: #1C1C1E;
   color: #fafafa;
 
@@ -7640,9 +7639,15 @@ body {
 /* line 12, ../../app/styles/main.scss */
 .container {
   width: 100%;
-
+  background: url("../images/greyspotbg.jpg") center top no-repeat;
+  background-size: contain;
+  height: 900px;
 }
-
+.bg {
+  
+  
+  
+}
 
 
 /* line 43, ../../app/styles/main.scss */
