@@ -7821,7 +7821,9 @@ body {
   .videopl {
     padding: 2%;
   }
-
+  #icons-container {
+    padding-top: 150px;
+  }
 }
 
 @keyframes titleMove {
