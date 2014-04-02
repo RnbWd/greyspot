@@ -7640,15 +7640,8 @@ body {
 .container {
   width: 100%;
   background: url("../images/greyspotbg.jpg") center top no-repeat;
-  background-size: contain;
   height: 900px;
 }
-.bg {
-  
-  
-  
-}
-
 
 /* line 43, ../../app/styles/main.scss */
 #icons-container {
@@ -7827,7 +7820,9 @@ body {
   .videopl {
     padding: 2%;
   }
-
+  .container {
+    background-size: cover;
+  }
 }
 
 @keyframes titleMove {
