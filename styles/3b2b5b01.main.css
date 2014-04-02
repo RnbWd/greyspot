@@ -7631,6 +7631,7 @@ td.visible-print {
 /* line 5, ../../app/styles/main.scss */
 body {
   background: url("../images/greyspotbg.jpg") center top no-repeat;
+  background-size: contain;
   background-color: #1C1C1E;
   color: #fafafa;
 
